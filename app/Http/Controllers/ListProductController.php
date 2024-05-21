@@ -13,4 +13,15 @@ class ListProductController extends Controller
 
         return view('products.index', compact('products'));
     }
-}
+
+    public function store(Request $request)
+    {
+        $produk = new Product;
+        $produk->nama = $request->input('nama');
+        $produk->deskripsi = $request->input('deskripsi');
+        $produk->harga = $request->input('harga');
+        $produk->save();
+
+        return redirect()->back()->with('success', 'Data berhasil disimpan!');
+    }
+  }
