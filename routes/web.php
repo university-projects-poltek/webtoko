@@ -20,3 +20,4 @@ Route::get('/', function () {
 
 
 Route::get('/list-product', [ListProductController::class, 'show']);
+Route::post('/list-product', [ListProductController::class, 'store'])->name('product.simpan');
